@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="index.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binary The Light</title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body
+    class="glass-bkg"
+    style="
+      padding: 100px;
+      min-height: 100vh;
+      max-height: fit-content;
+      overflow: auto;
+    "
+  >
+    <video
+      autoplay
+      muted
+      loop
+      id="background-video"
+      style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      "
+    >
+      <source src="fundo.mp4" type="video/mp4" />
+      Seu navegador não suporta o elemento vídeo.
+    </video>
+    <center>
+      <div class="glass-bkg">
+        <h3 style="color: #f5f5f5">
+          <span class="binary-effect">Binary The Light</span>
+          <br />
+          <small class="text-muted" style="color: #f5f5f5">Deep Within</small>
+        </h3>
+      </div>
+
+      <ul
+        class="nav nav-tabs"
+        id="myTab"
+        role="tablist"
+        style="display: flex; justify-content: center"
+      >
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active glass-bkg"
+            id="conversor-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#conversor-tab-pane"
+            type="button"
+            role="tab"
+            aria-controls="conversor-tab-pane"
+            aria-selected="true"
+          >
+            Conversor de Bases
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link glass-bkg"
+            id="bhaskara-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#bhaskara-tab-pane"
+            type="button"
+            role="tab"
+            aria-controls="bhaskara-tab-pane"
+            aria-selected="false"
+          >
+            Bhaskara
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link glass-bkg"
+            id="calorimetria-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#calorimetria-tab-pane"
+            type="button"
+            role="tab"
+            aria-controls="calorimetria-tab-pane"
+            aria-selected="false"
+          >
+            Calorimetria
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link glass-bkg"
+            id="catetos-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#catetos-tab-pane"
+            type="button"
+            role="tab"
+            aria-controls="catetos-tab-pane"
+            aria-selected="false"
+          >
+            Catetos
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link glass-bkg"
+            id="eq-prim-grau-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#eq-prim-grau-tab-pane"
+            type="button"
+            role="tab"
+            aria-controls="eq-prim-grau-tab-pane"
+            aria-selected="false"
+          >
+            Equação do primeiro Grau
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link glass-bkg"
+            id="juros-comp-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#juros-comp-tab-pane"
+            type="button"
+            role="tab"
+            aria-controls="juros-comp-tab-pane"
+            aria-selected="false"
+          >
+            Juro Simples e Compostos
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link glass-bkg"
+            id="montante-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#montante-tab-pane"
+            type="button"
+            role="tab"
+            aria-controls="montante-tab-pane"
+            aria-selected="false"
+          >
+            Montante
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link glass-bkg"
+            id="medias-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#medias-tab-pane"
+            type="button"
+            role="tab"
+            aria-controls="medias-tab-pane"
+            aria-selected="false"
+          >
+            Medias
+          </button>
+        </li>
+        <li class="tab-content" role="presentation">
+          <button
+            class="nav-link glass-bkg"
+            id="regra-tres-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#regra-tres-tab-pane"
+            type="button"
+            role="tab"
+            aria-controls="regra-tres-tab-pane"
+            aria-selected="false"
+          >
+            Regra de três
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link glass-bkg"
+            id="ir-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#ir-tab-pane"
+            type="button"
+            role="tab"
+            aria-controls="ir-tab-pane"
+            aria-selected="false"
+          >
+            Imposto de Renda
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="myTabContent" style="color: lightgray">
+        <div
+          class="tab-pane fade show active"
+          id="conversor-tab-pane"
+          role="tabpanel"
+          aria-labelledby="conversor-tab"
+          tabindex="0"
+        >
+          <br />
+          <div class="inputs-wrapper">
+            <h4>Entre com o valor a ser convertido</h4>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="inpValConvert"
+                placeholder="101"
+              />
+              <label for="inpValConvert">Valor</label>
+            </div>
+            <h4>Selecione a base</h4>
+            <select
+              class="form-select"
+              id="selectConvertBase"
+              aria-label="Default select example"
+            >
+              <option value="binary">Binário</option>
+              <option value="octal">Octal</option>
+              <option value="decimal" selected>Decimal</option>
+              <option value="hexadecimal">Hexadecimal</option>
+            </select>
+          </div>
+
+          <br /><br />
+          <div>
+            <strong>Binário: </strong> <span id="convertedValBinary"></span>
+          </div>
+          <div>
+            <strong>Octal: </strong> <span id="convertedValOctal"></span>
+          </div>
+          <div>
+            <strong>Decimal: </strong> <span id="convertedValDecimal"></span>
+          </div>
+          <div>
+            <strong>Hexadecimal: </strong>
+            <span id="convertedValHexadecimal"></span>
+          </div>
+          <br />
+        </div>
+
+        <div
+          class="tab-pane fade"
+          id="bhaskara-tab-pane"
+          role="tabpanel"
+          aria-labelledby="bhaskar-tab"
+          tabindex="0"
+        >
+          <h4>Entre com os coeficientes</h4>
+          <div class="inputs-wrapper">
+            <div>
+              <br />
+              <div class="input-group">
+                <span class="input-group-text" style="width: 48px">X²</span>
+                <input
+                  type="text"
+                  aria-label="First name"
+                  class="form-control"
+                  id="iptBhaskaraA"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-text" style="width: 48px">X</span>
+                <input
+                  type="text"
+                  aria-label="second name"
+                  class="form-control"
+                  id="iptBhaskaraB"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-text" style="width: 48px">Y</span>
+                <input
+                  type="text"
+                  aria-label="Last name"
+                  class="form-control"
+                  id="iptBhaskaraC"
+                />
+              </div>
+              <span
+                class="input-group-text"
+                style="width: fit-content; margin-top: 10px"
+              >
+                <math display="block">
+                  <mfrac linethickness="1">
+                    <mn>X² + X + Y = 0</mn>
+                  </mfrac>
+                </math>
+              </span>
+            </div>
+            <button class="btn-primary glass-btn" onclick="bhaskara()">
+              Calcular
+            </button>
+          </div>
+          <div id="divMsgBhaskara"></div>
+        </div>
+
+        <div
+          class="tab-pane fade"
+          id="calorimetria-tab-pane"
+          role="tabpanel"
+          aria-labelledby="calorimetria-tab"
+          tabindex="0"
+        >
+          <div class="inputs-wrapper">
+            <h4>Entre com os valores</h4>
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="iptCalorimetriaMassa"
+                placeholder="101"
+              />
+              <label for="iptCalorimetriaMassa">Inserir Massa</label>
+            </div>
+
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="iptCalorimetriaCalor"
+                placeholder="101"
+              />
+              <label for="iptCalorimetriaCalor">Inserir Calor</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="iptCalorimetriaDelta"
+                placeholder="101"
+              />
+              <label for="iptCalorimetriaDelta">Inserir o ΔT</label>
+            </div>
+            <button class="btn-primary glass-btn" onclick="calorimetria()">
+              Calcular
+            </button>
+            <div id="divMsgCalorimetria"></div>
+          </div>
+        </div>
+
+        <div
+          class="tab-pane fade"
+          id="catetos-tab-pane"
+          role="tabpanel"
+          aria-labelledby="catetos-tab"
+          tabindex="0"
+        >
+          <h1>Instruções</h1>
+          <h3 strong>
+            Deixar um campo em branco para que seja realizado o calculo:
+          </h3>
+          <hr />
+          <br /><br />
+
+          <div class="rectangle">
+            <div class="iptHip">
+              <input type="number" id="iptHip" />
+            </div>
+            <div class="iptCatA">
+              <input type="number" id="iptCatA" />
+            </div>
+            <div class="iptCatB">
+              <input type="number" id="iptCatB" />
+            </div>
+          </div>
+          <br /><br />
+          <button class="glass-btn" onclick="catetos()">Calcular</button>
+
+          <div id="divMsgCatetos"></div>
+        </div>
+
+        <div
+          class="tab-pane fade"
+          id="eq-prim-grau-tab-pane"
+          role="tabpanel"
+          aria-labelledby="eeq-prim-grau-tab"
+          tabindex="0"
+        >
+          <div class="inputs-wrapper">
+            <div>
+              <div class="input-group">
+                <span class="input-group-text" style="width: 48px">A</span>
+                <input
+                  type="text"
+                  aria-label="First name"
+                  class="form-control"
+                  id="iptEquacaoPrimeiroGrauX"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-text" style="width: 48px">B</span>
+                <input
+                  type="text"
+                  aria-label="second name"
+                  class="form-control"
+                  id="iptEquacaoPrimeiroGrauA"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-text" style="width: 48px">C</span>
+                <input
+                  type="text"
+                  aria-label="Last name"
+                  class="form-control"
+                  id="iptEquacaoPrimeiroGrauB"
+                />
+              </div>
+              <span
+                class="input-group-text"
+                style="width: fit-content; margin-top: 10px"
+              >
+                <math display="block">
+                  <mfrac linethickness="1">
+                    <mn>A + B + C = 0</mn>
+                  </mfrac>
+                </math>
+              </span>
+            </div>
+            <button onclick="equacaoPrimeiroGrau()" class="glass-btn">
+              Calcular
+            </button>
+
+            <div id="divMsgEquacaoPrimeiroGrau"></div>
+          </div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="juros-comp-tab-pane"
+          role="tabpanel"
+          aria-labelledby="juros-comp-tab"
+          tabindex="0"
+        >
+          <h4>Juros Simples</h4>
+          <div class="inputs-wrapper">
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="iptValJuros"
+                placeholder="101"
+              />
+              <label for="iptValJuros">Valor Investido</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="iptJuros"
+                placeholder="101"
+              />
+              <label for="iptJuros">Taxa de Juros</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="iptTempoJuros"
+                placeholder="101"
+              />
+              <label for="iptTempoJuros">Período de Tempo</label>
+            </div>
+            <button class="btn-primary glass-btn" onclick="jurosSimples()">
+              Calcular
+            </button>
+          </div>
+          <div id="divJurosSimples"></div>
+          <hr />
+
+          <h4>Juros Compostos</h4>
+          <div class="inputs-wrapper">
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="iptCapitalJuros"
+                placeholder="101"
+              />
+              <label for="iptCapitalJuros">Capital Investido</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="iptJurosComp"
+                placeholder="101"
+              />
+              <label for="iptJurosComp">Taxa de Juros</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="iptTempoMesJuros"
+                placeholder="101"
+              />
+              <label for="iptTempoMesJuros">Periodo de Tempo</label>
+            </div>
+            <button class="btn-primary glass-btn" onclick="jurosCompostos()">
+              Calcular
+            </button>
+          </div>
+          <div id="divJurosComposto"></div>
+        </div>
+
+        <div
+          class="tab-pane fade"
+          id="montante-tab-pane"
+          role="tabpanel"
+          aria-labelledby="montante-tab"
+          tabindex="0"
+        >
+          <div class="inputs-wrapper">
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="iptMontantecapital"
+                placeholder="101"
+              />
+              <label for="iptMontantecapital">Montante Capital</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="iptMontantejuros"
+                placeholder="101"
+              />
+              <label for="iptMontantejuros">Taxa de Juros</label>
+            </div>
+            <button class="btn-primary glass-btn" onclick="Montante()">
+              Calcular Montante
+            </button>
+            <br />
+            <div id="divMsgMontante"></div>
+          </div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="medias-tab-pane"
+          role="tabpanel"
+          aria-labelledby="medias-tab"
+          tabindex="0"
+        >
+          <div class="inputs-wrapper">
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="iptNumMedia"
+                placeholder="101"
+              />
+              <label for="iptNumMedia">Número 1</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="iptNumdoisMedia"
+                placeholder="101"
+              />
+              <label for="iptNumdoisMedia">Número 2</label>
+            </div>
+            <button class="btn-primary glass-btn" onclick="calcularMedia()">
+              Calcular
+            </button>
+          </div>
+          <div id="divMsgMedia"></div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="regra-tres-tab-pane"
+          role="tabpanel"
+          aria-labelledby="regra-tres-tab"
+          tabindex="0"
+        >
+          REGRA DE 3
+          <div
+            style="
+              display: flex;
+              gap: 12px;
+              position: relative;
+              max-width: fit-content;
+            "
+          >
+            <div style="position: absolute; top: 34%; left: 46%">=</div>
+            <div style="display: flex; gap: 8px; flex-direction: column">
+              <input
+                type="number"
+                aria-label="First name"
+                class="form-control"
+                id="iptRegraX1"
+                style="width: 56px"
+              />
+              <input
+                type="number"
+                aria-label="First name"
+                class="form-control"
+                id="iptRegraX2"
+                style="width: 56px"
+              />
+            </div>
+            <div style="display: flex; gap: 8px; flex-direction: column">
+              <input
+                type="number"
+                aria-label="First name"
+                class="form-control"
+                id="iptRegraY1"
+                style="width: 56px"
+              />
+              <span
+                class="input-group-text"
+                style="width: 56px; text-align: center"
+                >X</span
+              >
+            </div>
+          </div>
+          <br />
+          <button
+            class="btn-primary glass-btn"
+            onclick="regraDeTres()"
+            style="margin-bottom: 10px"
+          >
+            Calcular
+          </button>
+
+          <div id="divMsgRegraDeTres"></div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="ir-tab-pane"
+          role="tabpanel"
+          aria-labelledby="ir-tab"
+          tabindex="0"
+        >
+          <h1>Cálculo do Imposto de Renda Anual Brasileiro</h1>
+          <div class="inputs-wrapper" style="margin-bottom: 10px">
+            <div class="form-floating">
+              <input
+                type="number"
+                class="form-control"
+                id="iptIncome"
+                placeholder="101"
+              />
+              <label for="iptIncome">Renda Mensal:</label>
+            </div>
+            <label for="frequency">Frequência:</label>
+            <select
+              class="form-select"
+              id="iptFrequency"
+              aria-label="Default select example"
+            >
+              <option value="anual">Anual</option>
+              <option value="mensal">Mensal</option>
+            </select>
+
+            <br />
+            <button
+              class="btn-primary glass-btn"
+              onclick="calcularImpostoDeRenda()"
+            >
+              Calcular Imposto
+            </button>
+          </div>
+          <div id="divImpostoDeRenda"></div>
+        </div>
+      </div>
+    </center>
+
+    <script>
+      inpValConvert.addEventListener("input", (ev) => {
+        const calc = new Calculadora();
+        const baseOriginal = selectConvertBase.value;
+        const iptValue = calc.convertToDecimal(
+          inpValConvert.value,
+          baseOriginal
+        );
+
+        convertedValBinary.innerHTML = ` ${calc.convertToBaseFinal(
+          iptValue,
+          "binary"
+        )}`;
+        convertedValOctal.innerHTML = ` ${calc.convertToBaseFinal(
+          iptValue,
+          "octal"
+        )}`;
+        convertedValDecimal.innerHTML = ` ${calc.convertToBaseFinal(
+          iptValue,
+          "decimal"
+        )}`;
+        convertedValHexadecimal.innerHTML = ` ${calc.convertToBaseFinal(
+          iptValue,
+          "hexadecimal"
+        )}`;
+      });
+    </script>
+  </body>
+</html>

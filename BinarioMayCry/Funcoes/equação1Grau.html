@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+levando em consideração que: (Numero)X (+ ou -) (Numero) (+ ou -) Numero = 0
+    <br>
+    x <input type="number" id="ipt_EquacaoPrimeiroGrauX">
+    <br>
+    Numero <input type="number" id="ipt_EquacaoPrimeiroGrauA">
+    <br>
+    Numero <input type="number" id="ipt_EquacaoPrimeiroGrauB">
+    <br>
+    <button onclick="equacao()">Calcular</button>
+
+    <div id="divMsgEquacaoPrimeiroGrau"></div>
+</body>
+
+</html>
+
+
+<script>
+    function equacao() {
+        var x = Number(ipt_x.value);
+        var a = Number(ipt_a.value);
+        var b = Number(ipt_b.value);
+
+        var resultadoEquacao = (a + b) / x;
+
+        DIV_MENSAGEM.innerHTML = `Resultado: ${resultadoEquacao}`;
+    }
+
+</script>

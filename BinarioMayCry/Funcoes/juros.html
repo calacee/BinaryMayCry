@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Juros Simples</h1>
+    <hr>
+    Valor Principal: <br>
+    <input type="number" id="iptVal"><br><br>
+    Taxa de Juros: <br>
+    <input type="number" id="iptJuros"><br><br>
+    Periodo de Tempo: <br>
+    <input type="number" id="iptTempo"><br><br>
+    <button onclick="simples()">Calcular</button>
+
+    <div id="divSimples">
+
+    </div>
+
+    <h1>Juros Compostos</h1>
+    <hr>
+    Capital: <br>
+    <input type="number" id="iptCapital"><br><br>
+    Taxa de Juros: <br>
+    <input type="number" id="ipt_Juros"><br><br>
+    Periodo de Tempo: <br>
+    <input type="number" id="iptTempoMes"><br><br>
+
+    <button onclick="compostos()">Calcular</button>
+    <div id="divComposto"></div>
+</body>
+
+</html>
+
+<script>
+
+    function simples() {
+        var valor = Number(iptVal.value);
+        var juros = Number(iptJuros.value);
+        var tempo = Number(iptTempo.value);
+
+        var conta = valor * juros * tempo
+
+        divSimples.innerHTML = `Seus valor de R$${valor}, com juros de ${juros}% ao mês, aplicado por ${tempo} meses renderá aproximadamente R$${conta}`
+    }
+
+    function compostos() {
+        var juros = Number(ipt_Juros.value)
+        var tempo = Number(iptTempoMes.value)
+        var capital = Number(iptCapital.value)
+
+        var montante = capital * Math.pow((1 + (juros / 100)), tempo)
+
+        divComposto.innerHTML = `Você esta com o montante de R$${montante}`
+    }
+
+
+
+
+</script>

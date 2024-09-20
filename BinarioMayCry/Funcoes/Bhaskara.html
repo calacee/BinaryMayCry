@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    a <input type="number" id="ipt_a">
+    <br>
+    b <input type="number" id="ipt_b">
+    <br>
+    c <input type="number" id="ipt_c">
+    <br>
+    <button onclick="bhaskara()">Calcular</button>
+
+    <div id="DIV_MENSAGEM"></div>
+</body>
+
+</html>
+
+
+<script>
+    function bhaskara() {
+
+        var delta = (Number(ipt_b.value) * Number(ipt_b.value)) - (4 * Number(ipt_a.value) * Number(ipt_c.value))
+        var raizDeDelta = Math.sqrt(delta)
+
+        if (raizDeDelta >= 0) {
+            var x1 = (-Number(ipt_b.value) + raizDeDelta) / (2 * ipt_a.value)
+            var x2 = (-Number(ipt_b.value) - raizDeDelta) / (2 * ipt_a.value)
+
+            var saidaPositivo = x1
+            var saidaNegativo = x2
+
+            if (x1 < 0) {
+                var saidaPositivo = `Raiz negativa, continue a conta com o outro valor`
+            } if (x2 < 0) {
+                var saidaNegativo = `Raiz negativa, continue a conta com o outro valor`
+            }
+            DIV_MENSAGEM.innerHTML = `Raiz1: ${saidaPositivo} 
+                                      <br>
+                                      Raiz2: ${saidaNegativo}`
+        } else {
+            DIV_MENSAGEM.innerHTML`A equação não possui raizes reais`
+        }
+    }
+
+</script>

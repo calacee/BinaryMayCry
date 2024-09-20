@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Inserir Massa: <br>
+    <input type="number" id="iptMassa"><br><br>
+    Inserir o calor específico: <br>
+    <input type="number" id="iptCalor"><br><br>
+    Inserir o ΔT: <br>
+    <input type="number" id="iptDelta"><br><br>
+    <button onclick="calcular()">Calcular</button><br>
+    <div id="divMsg">
+
+    </div>
+</body>
+</html>
+
+<script>
+    // ΔQ = m·c·ΔT
+    function calcular(){
+        var massa= Number(iptMassa.value);
+        var calor= Number(iptCalor.value);
+        var delta= Number(iptDelta.value);
+
+        var conta= massa * calor * delta;
+
+        divMsg.innerHTML =`Seu ΔQ é igual à ${conta}`
+   
+    }
+</script>

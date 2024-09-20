@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Instruções</h1>
+    deixar um em branco para que seja realizado o calculo <hr><br><br>
+
+    Cateto A <br>
+    <input type="number" id="iptCat"><br><br>
+    Caeteto B <br>
+    <input type="number" id="iptCatB"><br><br>
+    Hipotenusa <br>
+    <input type="number" id="iptHip"><br><br>
+    <button onclick="calcular()">Calcular</button><br><br>
+
+    <div id="divMsg">
+
+    </div>
+
+</body>
+</html>
+<script>
+
+    function calcular(){
+
+        var catA= Number(iptCat.value)
+        var catB= Number(iptCatB.value)
+        var hip= Number(iptHip.value)
+   
+        if (catA == 0){
+            var conta= Math.sqrt(Math.pow(hip , 2) - Math.pow(catB , 2))
+
+            divMsg.innerHTML= conta
+        }
+        if (catB == 0){
+            var conta= Math.sqrt(Math.pow(hip , 2) - Math.pow(catA , 2))
+
+            divMsg.innerHTML= conta
+        }
+        if (hip == 0){
+            var conta= Math.sqrt(Math.pow(catA , 2) + Math.pow(catB , 2))
+
+            divMsg.innerHTML= conta
+        }
+        if (hip < catA || hip < catB){
+            divMsg.innerHTML= `A hipotenusa não pode ser menor que os catetos!`
+        }
+    }
+</script>
