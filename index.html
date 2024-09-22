@@ -42,8 +42,7 @@
         object-fit: cover;
       "
     >
-      <source src="fundo.mp4" type="video/mp4" />
-      Seu navegador não suporta o elemento vídeo.
+      <source src="src/fundo.mp4" type="video/mp4" />
     </video>
     <center>
       <div class="glass-bkg">
@@ -184,20 +183,6 @@
             aria-selected="false"
           >
             Regra de três
-          </button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button
-            class="nav-link glass-bkg"
-            id="ir-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#ir-tab-pane"
-            type="button"
-            role="tab"
-            aria-controls="ir-tab-pane"
-            aria-selected="false"
-          >
-            Imposto de Renda
           </button>
         </li>
       </ul>
@@ -640,73 +625,32 @@
 
           <div id="divMsgRegraDeTres"></div>
         </div>
-        <div
-          class="tab-pane fade"
-          id="ir-tab-pane"
-          role="tabpanel"
-          aria-labelledby="ir-tab"
-          tabindex="0"
-        >
-          <h1>Cálculo do Imposto de Renda Anual Brasileiro</h1>
-          <div class="inputs-wrapper" style="margin-bottom: 10px">
-            <div class="form-floating">
-              <input
-                type="number"
-                class="form-control"
-                id="iptIncome"
-                placeholder="101"
-              />
-              <label for="iptIncome">Renda Mensal:</label>
-            </div>
-            <label for="frequency">Frequência:</label>
-            <select
-              class="form-select"
-              id="iptFrequency"
-              aria-label="Default select example"
-            >
-              <option value="anual">Anual</option>
-              <option value="mensal">Mensal</option>
-            </select>
-
-            <br />
-            <button
-              class="btn-primary glass-btn"
-              onclick="calcularImpostoDeRenda()"
-            >
-              Calcular Imposto
-            </button>
-          </div>
-          <div id="divImpostoDeRenda"></div>
-        </div>
       </div>
     </center>
-
-    <script>
-      inpValConvert.addEventListener("input", (ev) => {
-        const calc = new Calculadora();
-        const baseOriginal = selectConvertBase.value;
-        const iptValue = calc.convertToDecimal(
-          inpValConvert.value,
-          baseOriginal
-        );
-
-        convertedValBinary.innerHTML = ` ${calc.convertToBaseFinal(
-          iptValue,
-          "binary"
-        )}`;
-        convertedValOctal.innerHTML = ` ${calc.convertToBaseFinal(
-          iptValue,
-          "octal"
-        )}`;
-        convertedValDecimal.innerHTML = ` ${calc.convertToBaseFinal(
-          iptValue,
-          "decimal"
-        )}`;
-        convertedValHexadecimal.innerHTML = ` ${calc.convertToBaseFinal(
-          iptValue,
-          "hexadecimal"
-        )}`;
-      });
-    </script>
   </body>
+
+  <script>
+    inpValConvert.addEventListener("input", (ev) => {
+      const calc = new Calculadora();
+      const baseOriginal = selectConvertBase.value;
+      const iptValue = calc.convertToDecimal(inpValConvert.value, baseOriginal);
+
+      convertedValBinary.innerHTML = ` ${calc.convertToBaseFinal(
+        iptValue,
+        "binary"
+      )}`;
+      convertedValOctal.innerHTML = ` ${calc.convertToBaseFinal(
+        iptValue,
+        "octal"
+      )}`;
+      convertedValDecimal.innerHTML = ` ${calc.convertToBaseFinal(
+        iptValue,
+        "decimal"
+      )}`;
+      convertedValHexadecimal.innerHTML = ` ${calc.convertToBaseFinal(
+        iptValue,
+        "hexadecimal"
+      )}`;
+    });
+  </script>
 </html>
