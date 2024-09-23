@@ -158,15 +158,12 @@ function regraDeTres() {
   let x1 = Number(iptRegraX1.value);
   let x2 = Number(iptRegraX2.value);
   let y1 = Number(iptRegraY1.value);
-  let y2 = Number("1");
 
-  let resultadoEquacao1 = (x2 * y1);
-  let resultadoEquacao2 = resultadoEquacao1 / x1;
-
+  let resultadoEquacao = (x2 * y1) / x1;
 
   divMsgRegraDeTres.innerHTML = `
     <math display="block"><mfrac linethickness="1">
     <mn>${y1}</mn>
-    <mn>${resultadoEquacao2}</mn>
+    <mn>${resultadoEquacao}</mn>
     </mfrac></math> `;
 }
