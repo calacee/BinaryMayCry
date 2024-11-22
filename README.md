@@ -10,7 +10,7 @@ HTML: Estruturação da página.
 CSS: Estilização da interface.
 JavaScript: Implementação da lógica e das funcionalidades.
 # Contribuidores
-Felipe Calace
+Felipe Calace &&
 Hendreu Tomadoce
 # Como Usar
 Faça o download ou clone o repositório.
