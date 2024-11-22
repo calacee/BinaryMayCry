@@ -1,4 +1,3 @@
-# Projeto de Calculadora
 # Sobre o Projeto
 A calculadora foi criada utilizando as tecnologias JavaScript, HTML e CSS e oferece múltiplas funcionalidades para realizar operações matemáticas de forma eficiente e intuitiva.
 # Funcionalidades
