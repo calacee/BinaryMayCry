@@ -32,4 +32,4 @@ The calculator was created using **JavaScript**, **HTML**, and **CSS**, offering
 
 1. 📥 Download or clone the repository:  
    ```bash
-   git clone https://github.com/calacee/BinaryMayCry
+   git clone https://github.com/calacee/BinaryMayCry.git
