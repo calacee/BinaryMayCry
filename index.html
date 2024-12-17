@@ -76,6 +76,20 @@
         <li class="nav-item" role="presentation">
           <button
             class="nav-link glass-bkg"
+            id="operations-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#operations-tab-pane"
+            type="button"
+            role="tab"
+            aria-controls="operations-tab-pane"
+            aria-selected="false"
+          >
+            Operações entre bases
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link glass-bkg"
             id="bhaskara-tab"
             data-bs-toggle="tab"
             data-bs-target="#bhaskara-tab-pane"
@@ -236,7 +250,63 @@
           </div>
           <br />
         </div>
-
+        <div
+          class="tab-pane fade"
+          id="operations-tab-pane"
+          role="tabpanel"
+          aria-labelledby="operations-tab"
+          tabindex="0"
+        >
+          <h4>Entre com os valores a serem operados</h4>
+          <div class="inputs-wrapper">
+            <div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inpValConvert2"
+                  placeholder="101"
+                />
+                <label for="inpValConvert">Valor 1</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inpValConvert3"
+                  placeholder="101"
+                />
+                <label for="inpValConvert">Valor 2</label>
+              </div>
+              <h4>Selecione a base</h4>
+              <select
+                class="form-select"
+                id="selectConvertBase2"
+                aria-label="Default select example"
+              >
+                <option value="binary">Binário</option>
+                <option value="octal">Octal</option>
+                <option value="decimal" selected>Decimal</option>
+                <option value="hexadecimal">Hexadecimal</option>
+              </select>
+              <h4>Selecione a base</h4>
+              <select
+                class="form-select"
+                id="selectOperar"
+                aria-label="Default select example"
+              >
+                <option value="somar">Somar</option>
+                <option value="subtrair">Subtrair</option>
+                <option value="multiplicar" selected>Multiplicar</option>
+                <option value="dividir">Dividir</option>
+              </select>
+            </div>
+            <button class="btn-primary glass-btn" onclick="operar()">
+              Calcular
+            </button>
+          </div>
+          <div id="resultadoOperacao"></div>
+        </div>
         <div
           class="tab-pane fade"
           id="bhaskara-tab-pane"
@@ -652,5 +722,12 @@
         "hexadecimal"
       )}`;
     });
+    function operar(){
+      const calc = new Calculadora();
+      const baseOriginal = selectConvertBase2.value;
+      const tipoOperacao = calc.operar(inpValConvert2.value, inpValConvert3.value, selectConvertBase2.value, selectOperar.value);
+    
+      resultadoOperacao.innerHTML = `${tipoOperacao}`
+    }
   </script>
 </html>

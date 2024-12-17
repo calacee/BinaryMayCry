@@ -34,6 +34,51 @@ class Calculadora {
 
     return this.convertToBaseFinal(valDecimal, baseFinal);
   }
+
+  somar(valor, valor2, base) {
+    const valDecimal = this.convertToDecimal(valor, base);
+    const valDecimal2 = this.convertToDecimal(valor2, base);
+    const somaDecimal = valDecimal + valDecimal2;
+
+    return this.convertToBaseFinal(somaDecimal, base)
+  }
+
+  subtrair(valor, valor2, base) {
+    const valDecimal = this.convertToDecimal(valor, base);
+    const valDecimal2 = this.convertToDecimal(valor2, base);
+    const subtracaoDecimal = valDecimal - valDecimal2;
+
+    return this.convertToBaseFinal(subtracaoDecimal, base)
+  }
+
+  multiplicar(valor, valor2, base) {
+    const valDecimal = this.convertToDecimal(valor, base);
+    const valDecimal2 = this.convertToDecimal(valor2, base);
+    const multiplicacaoDecimal = valDecimal * valDecimal2;
+
+    return this.convertToBaseFinal(multiplicacaoDecimal, base)
+  }
+
+  dividir(valor, valor2, base) {
+    const valDecimal = this.convertToDecimal(valor, base);
+    const valDecimal2 = this.convertToDecimal(valor2, base);
+    const divisaoDecimal = valDecimal / valDecimal2;
+
+    return this.convertToBaseFinal(divisaoDecimal, base)
+  }
+
+  operar(valor, valor2, base, tipo){
+    switch (tipo){
+      case "somar":
+        return this.somar(valor, valor2, base);
+      case "subtrair":
+        return this.subtrair(valor, valor2, base);
+      case "multiplicar":
+        return this.multiplicar(valor, valor2, base);
+      case "dividir":
+        return this.dividir(valor, valor2, base);
+    }
+  }
 }
 
 // função para baskhara
